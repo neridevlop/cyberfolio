@@ -62,6 +62,43 @@
         <li>Ville : Paris</li>
       </ul>
     </section>
+
+    <section>
+  <h2>M'écrire directement</h2>
+  <form action="https://formspree.io/f/xrpqryka" method="POST">
+
+    <label for="nom">Nom et prénom</label>
+    <input type="text" id="nom" name="nom" required autocomplete="name">
+
+    <label for="email">Votre e-mail</label>
+    <input type="email" id="email" name="email" required autocomplete="email">
+
+    <label for="organisation">Entreprise ou organisation</label>
+    <input type="text" id="organisation" name="organisation" autocomplete="organization">
+
+    <label for="objet">Objet</label>
+    <select id="objet" name="objet">
+      <option value="Proposition de stage ou alternance">Proposition de stage ou d'alternance</option>
+      <option value="Proposition d'emploi">Proposition d'emploi</option>
+      <option value="Question sur mon parcours">Question sur mon parcours</option>
+      <option value="Autre">Autre</option>
+    </select>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="6" required></textarea>
+
+    <!-- Champ piège anti-spam : les humains ne le voient pas -->
+    <div class="piege" aria-hidden="true">
+      <label for="gotcha">Ne pas remplir</label>
+      <input type="text" id="gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+    </div>
+
+      =<button type="submit">Envoyer</button>
+    </form>
+    <p>Les informations saisies ne servent qu'à vous répondre.</p>
+  </section>
+
+
   </main>
 
   <footer>
