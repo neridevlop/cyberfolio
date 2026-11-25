@@ -7,6 +7,23 @@
   <link rel="stylesheet" href="style.css">
   <script src="js/main.js"></script>
 </head>
+
+<dialog id="avertissement" aria-labelledby="avert-titre" aria-describedby="avert-texte">
+  <p class="avert-etiquette">// ALERTE SYSTÈME</p>
+  <h2 id="avert-titre" data-texte="ACCÈS À VOS RISQUES">ACCÈS À VOS RISQUES</h2>
+  <p id="avert-texte">
+    Vous êtes sur le point d'entrer dans un cyberfolio. Aucun virus ici,
+    seulement des pétales, des bulles et une fâcheuse tendance à la bonne humeur.
+    Voulez-vous continuer à vos risques et périls ?
+  </p>
+  <p class="avert-console" id="avert-console" aria-hidden="true"></p>
+  <div class="avert-boutons">
+    <button type="button" id="avert-oui">Continuer à mes risques et périls</button>
+    <button type="button" id="avert-non">Quitter</button>
+  </div>
+  <p id="avert-refus" role="status" hidden></p>
+</dialog>
+
 <body>
 
   <header>

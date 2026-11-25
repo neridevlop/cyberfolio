@@ -430,3 +430,185 @@ button[type="submit"]:focus-visible {
   left: -9999px;
 }
 
+/* ===== Page d'avertissement : ambiance sombre, très différente du site ===== */
+
+/* Tant que le visiteur n'a pas choisi, les animations du site attendent */
+html.en-attente .intro,
+html.en-attente .intro *,
+html.en-attente header,
+html.en-attente main,
+html.en-attente footer {
+  animation-play-state: paused;
+}
+
+#avertissement {
+  position: fixed;
+  width: min(92vw, 560px);
+  max-height: 92vh;
+  padding: 2rem 1.6rem;
+  overflow: hidden;
+  color: #c8ffe0;
+  font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+  background: #05070a;
+  border: 1px solid #1fdc82;
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 1px rgba(255, 59, 92, 0.35),
+    0 0 40px rgba(31, 220, 130, 0.35),
+    inset 0 0 60px rgba(31, 220, 130, 0.07);
+  animation: avert-entree 0.5s ease both;
+}
+
+#avertissement::backdrop {
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px 3px),
+    radial-gradient(circle at 50% 40%, #0b1a14 0%, #020304 75%);
+}
+
+/* Lignes de balayage façon vieil écran */
+#avertissement::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0 1px, transparent 1px 3px);
+}
+
+.avert-etiquette {
+  margin: 0 0 0.5rem;
+  color: #ff3b5c;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  animation: avert-clignote 1.4s steps(2) infinite;
+}
+
+#avertissement h2 {
+  position: relative;
+  margin: 0 0 1rem;
+  color: #3dff9a;
+  font-size: clamp(1.4rem, 6vw, 2.1rem);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 12px rgba(61, 255, 154, 0.7);
+}
+
+/* Effet « glitch » : deux copies décalées, rouge et bleue */
+#avertissement h2::before,
+#avertissement h2::after {
+  content: attr(data-texte);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  text-shadow: none;
+}
+
+#avertissement h2::before {
+  color: #ff3b5c;
+  animation: avert-glitch-haut 3s steps(1) infinite;
+}
+
+#avertissement h2::after {
+  color: #3dd6ff;
+  animation: avert-glitch-bas 3s steps(1) infinite;
+}
+
+#avert-texte {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.avert-console {
+  min-height: 5.5rem;
+  margin: 0 0 0.5rem;
+  color: #3dff9a;
+  font-size: 0.85rem;
+  white-space: pre-line;
+}
+
+.avert-boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.avert-boutons button {
+  padding: 0.7rem 1.1rem;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.avert-boutons button:focus-visible {
+  outline: 2px dashed #fff;
+  outline-offset: 3px;
+}
+
+#avert-oui {
+  color: #05070a;
+  font-weight: 700;
+  background: #3dff9a;
+  border: 1px solid #3dff9a;
+  box-shadow: 0 0 14px rgba(61, 255, 154, 0.5);
+}
+
+#avert-oui:hover,
+#avert-oui:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(61, 255, 154, 0.9);
+}
+
+#avert-non {
+  color: #ff3b5c;
+  background: transparent;
+  border: 1px solid #ff3b5c;
+}
+
+#avert-non:hover,
+#avert-non:focus-visible {
+  background: rgba(255, 59, 92, 0.15);
+}
+
+#avert-refus {
+  margin: 1rem 0 0;
+  color: #ff3b5c;
+}
+
+/* Sortie en fondu quand on accepte */
+#avertissement.sortie {
+  animation: avert-sortie 0.45s ease forwards;
+}
+
+#avertissement.sortie::backdrop {
+  animation: avert-fond 0.45s ease forwards;
+}
+
+@keyframes avert-entree {
+  from { opacity: 0; transform: scale(0.94); filter: blur(4px); }
+  to   { opacity: 1; transform: scale(1);    filter: blur(0); }
+}
+
+@keyframes avert-sortie {
+  to { opacity: 0; transform: scale(1.04); filter: blur(6px); }
+}
+
+@keyframes avert-fond {
+  to { opacity: 0; }
+}
+
+@keyframes avert-clignote {
+  50% { opacity: 0.25; }
+}
+
+@keyframes avert-glitch-haut {
+  0%, 90%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  92% { clip-path: inset(10% 0 55% 0); transform: translateX(-4px); }
+  96% { clip-path: inset(55% 0 15% 0); transform: translateX(3px); }
+}
+
+@keyframes avert-glitch-bas {
+  0%, 91%, 100% { clip-path: inset(0 0 100% 0); transform: none; }
+  93% { clip-path: inset(40% 0 30% 0); transform: translateX(4px); }
+  97% { clip-path: inset(5% 0 70% 0); transform: translateX(-3px); }
+}
