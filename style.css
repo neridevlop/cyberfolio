@@ -364,6 +364,10 @@ body.accueil footer { animation: apparition 0.5s ease 1.3s both; }
     body.interne header,
   body.interne main,
   body.interne footer { animation: none; }
+    #avertissement,
+  #avertissement *,
+  #avertissement *::before,
+  #avertissement *::after { animation: none; }
 }
 
 /* ===== Formulaire (style Frutiger Aero) ===== */
