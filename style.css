@@ -406,3 +406,17 @@ button[type="submit"]:focus-visible {
   position: absolute;
   left: -9999px;
 }
+
+/* Intro déjà vue pendant cette visite : on l'ignore */
+html.deja-vu .intro {
+  display: none;
+}
+
+html.deja-vu body.accueil header,
+html.deja-vu body.accueil main,
+html.deja-vu body.accueil footer,
+html.deja-vu body.interne header,
+html.deja-vu body.interne main,
+html.deja-vu body.interne footer {
+  animation: none;
+}
