@@ -232,7 +232,7 @@ footer {
   height: 0;
   animation:
     tourner 2s linear infinite,
-    respirer 0.5s ease-in-out infinite;
+    respirer 1.5s ease-in-out infinite;
 }
 
 /* Halo lumineux au centre, comme une bulle */
@@ -332,7 +332,7 @@ body.accueil footer { animation: apparition 1s ease 4.7s both; }
 
 /* ===== Intro courte (environ 1,4 s) : pages Réalisations et Contact ===== */
 body.interne .intro {
-  animation: disparition 0.4s ease-in 1s forwards;
+  animation: disparition 1.4s ease-in 1s forwards;
 }
 
 body.interne .tourbillon {
@@ -430,16 +430,3 @@ button[type="submit"]:focus-visible {
   left: -9999px;
 }
 
-/* Intro déjà vue pendant cette visite : on l'ignore */
-html.deja-vu .intro {
-  display: none;
-}
-
-html.deja-vu body.accueil header,
-html.deja-vu body.accueil main,
-html.deja-vu body.accueil footer,
-html.deja-vu body.interne header,
-html.deja-vu body.interne main,
-html.deja-vu body.interne footer {
-  animation: none;
-}
