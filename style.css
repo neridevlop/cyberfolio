@@ -616,3 +616,29 @@ html.en-attente footer {
   93% { clip-path: inset(40% 0 30% 0); transform: translateX(4px); }
   97% { clip-path: inset(5% 0 70% 0); transform: translateX(-3px); }
 }
+
+/* ===== Bouton de téléchargement du CV ===== */
+.bouton-cv {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  color: #06364a;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #e9ffe6 0%, #b8f5c8 49%, #5fdc9a 50%, #b5f7d2 100%);
+  box-shadow: 0 4px 12px rgba(10, 143, 122, 0.4), inset 0 1px 0 #fff;
+  transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bouton-cv::before {
+  content: "\2193";
+  margin-right: 0.6rem;
+}
+
+.bouton-cv:hover,
+.bouton-cv:focus-visible {
+  transform: translateY(-3px) scale(1.04);
+  filter: brightness(1.08);
+  box-shadow: 0 8px 20px rgba(10, 143, 122, 0.5), inset 0 1px 0 #fff;
+}
